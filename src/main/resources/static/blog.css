@@ -1,0 +1,561 @@
+body{
+    overflow: hidden; 
+    background-image: url("/img/back.gif");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+}
+#wrapper1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#main{
+    width : 70vw;
+    height : 80vh;
+    opacity: 0.95 ;
+    background-color: #02B2D9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: gray 2px 2px 2px 2px;
+}
+
+#box{
+    height : 80vh;
+}
+#musicbox{
+    width: 15vw;
+    height: 45vh;
+    margin-left: 2vw;
+    opacity: 0.95 ;
+    margin-top: 0;
+    background-color: #F0F0F0;
+}
+#dot{
+    width:67vw;
+    height:74vh;
+    border:dashed white 1.5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#page{
+    width: 66.5vw;
+    height: 73vh;
+    background-color: #F0F0F0;
+    border-radius: 10px;
+    display: flex;
+    
+}
+#leftpage{
+    width:25%;
+    height:100%;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#leftpage a{
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+#photo{
+    margin-top: 10px;
+    width:70%;
+    height:50%;
+    background-image: url("/img/profile.png");
+    background-size: cover;
+    border: lightgray solid 1px;
+}
+
+#profile{
+    width:95%;
+    height:91%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: #C1C1C1 1px 1px 1px 3px;
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#rightpage{
+    width:73%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+#rightpage a{
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size:25px;
+    font-weight: bold;
+}
+.home{
+    overflow-x:hidden;
+    width:98%;
+    height:91%;
+    background-color: white;
+    border-radius: 20px;
+    border-top: solid 1px #C1C1C1;
+    border-left: solid 1px #C1C1C1;
+    border-bottom: solid 3px #C1C1C1;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    z-index: 3;
+}
+
+#section1{
+    width:40vw;
+    height:15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#leftpost{
+    margin-right: 20px;
+    width:20vw;
+    height:15vh;
+}
+#leftpost *{
+    font-size: 20px;
+    margin: 0 auto;
+
+}
+#leftpost :nth-child(1){
+    margin-top: 10px;
+    font-weight: bold;
+    color: #02B2D9;
+}
+#leftpost :nth-child(3){
+    margin-top: 5px;
+    text-align: center;
+    font-family: 'Single Day', cursive;
+}
+
+#rightpost{
+    width:20vw;
+    height:15vh;
+}
+#rightpost *{
+    margin: 0 auto;
+}
+
+#rightpost p{
+    font-family: 'Single Day', cursive;
+    font-size :20px;
+    margin: 0 auto;
+}
+#rightpost div{
+    display: flex;
+}
+#rightpost hr{
+    border-top :1px dashed #bbb;
+}
+#section2{
+    width: 40vw;
+    height:45vh;
+}
+#section2 p{
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #02B2D9;
+    margin: 5px;
+}
+#picture{
+    width: 40vw;
+    height: auto;
+    background-image: url("/img/miniroom2.gif");
+    border: 1px solid lightgray;
+    background-size: cover;
+    /* position: relative; */
+}
+#picture div{
+    width: 60px;
+    height:80px;
+    position:relative;
+} 
+#avatar1{
+    left:50px;
+    top:320px;
+}
+#avatar2{
+    left:170px;
+    top:230px;
+}
+#avatar3{
+    left:240px;
+    top:150px;
+}
+#avatar4{
+    left:370px;
+    top:40px;
+}
+#avatar5{
+    left:250px;
+    top:-100px;
+}
+
+#section3{
+    width: 40vw;
+    height:40vh;
+}
+#write{
+    margin-top: 10px;
+    width: 40vw;
+    height: 5vh;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #F4F4F4;
+}
+#write p{
+    color: #02B2D9;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-right: 5px;
+}
+#write form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#content{
+    width:26vw;
+    height:2vh;
+    font-size: 15px;
+    color:gray;
+    outline: none;
+}
+
+#content:focus{
+    color:black;
+}
+
+#write button{
+    height:3vh;
+    font-size: 15px;
+    margin :2px;
+}
+#content li{
+    font-size: 15px;
+}
+#nickname{
+    width:5vw;
+    height:2vh;
+    font-size: 15px;
+    color:gray;
+    outline: none;
+}
+
+#comment *{
+    font-size: 17px;
+}
+#table{
+    width:40vw;
+}
+#table button{
+    width:50px;
+    height:25px;
+    font-size: 15px;
+    border-radius: 20px;
+    border: solid 2px lightgray;
+    cursor: pointer;
+    font-weight: bold;
+}
+#posttime{
+    text-align: end;
+    color:gray;
+}
+
+.updatecomment{
+    display:none;
+}
+.currentcomment{
+    display: block;
+}
+
+#updateform{
+    display: flex;
+}
+#updateform input{
+    width: 80px;
+    font-size: 15px;
+    outline: none;
+    text-align: center;
+    color:gray;
+}
+
+#musicbox p{
+    background-color: white;
+    width: 14vw;
+    height: 3vh;
+    text-align: center;
+
+}
+#musicbox h3{
+    font-family: 'Single Day', cursive;
+    width: 14vw;
+    color : black;
+    margin-left: 0.5vw;
+    font-size: 25px;
+}
+#logout{
+    display: flex;
+    justify-content: center;
+}
+#logout button{
+    width:10vw;
+    height:5vh;
+    border-radius: 20px;
+    font-size: 20px;
+    border: 0;
+    background-color: gray;
+    color:white;
+    cursor: pointer;
+}
+#musicpicture{
+    width:15vw;
+    height:30vh;
+    background-image: url("/img/musicbox.jpg");
+    background-size: cover;
+}
+#musicplayer{
+    background-color: #F0F0F0;
+    width:15vw;
+    height:8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+audio{
+    width:15vw;
+    height: 20px;
+    border-radius: 0;
+}
+#edge{
+    position: absolute;
+    width:5vw;
+    height:66.4vh;
+    background-color: white;
+    top: 8.5vh;
+    left: 68.5vw;
+    border-radius: 20px;
+    border-top: 1px solid #C1C1C1;
+    border-right: 3px solid #C1C1C1;
+    border-bottom: 3px solid #C1C1C1;
+    z-index: 2;
+}
+.rightbutton div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    border-radius: 5px;
+    width: 4.3vw;
+    height:5vh;
+    border: 1px solid gray;
+    left: 73.5vw;
+    background-color: #089DC8;
+    color:white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+#homepage{
+    top: 10vh;
+    background-color: white;
+    color:black;
+    z-index:2;
+    border-left: 0;
+}
+#writepage{
+    top:16vh;
+}
+.homesecond{
+    overflow-x:hidden;
+    width:98%;
+    height:91%;
+    background-color: white;
+    border-radius: 20px;
+    border-top: solid 1px #C1C1C1;
+    border-left: solid 1px #C1C1C1;
+    border-bottom: solid 3px #C1C1C1;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    z-index: 3;
+    display: none;
+}
+
+#writeform{
+    width:40vw;
+    height:25vh;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    margin-top: 2vw;
+    background-color: #F6F6F6;
+    display: flex;
+    justify-content: center;
+}
+#writepicture, #writelistpicture{
+    background-image: url("/img/back1.gif");
+    width:10vw;
+    height:20vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    margin-top: 2.5vh;
+}
+
+#writepicture img,#writelistpicture img{
+    width:3vw;
+    height:10vh;
+}
+#writeform textarea{
+    width: 26vw;
+    height:19.5vh;
+    resize: none;
+    outline: none;
+    font-size: 15px;
+}
+#writeform button{
+    width: 3vw;
+    height:3vh;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+#writepost{
+    margin-top: 2.5vh;
+    display: flex;
+    flex-direction: column;
+}
+#writepost div {
+    display:flex;
+    justify-content: right;
+}
+.writelist{
+    display: flex;
+    flex-direction: column;
+}
+#guestbookbutton{
+    display: flex;
+}
+.guestbookupdateform{
+    display: none;
+}
+.guestbookupdateform textarea{
+    margin-top: 2.7vh;
+    width: 26vw;
+    height:19vh;
+    font-size: 17px;
+    color:gray;
+    outline: none;
+    resize: none;
+}
+#toplist{
+    display: flex;
+    background-color: #F6F6F6;
+    width: 40vw;
+    height:5vh;
+    border-top: solid 2px lightgray;
+    border-bottom: solid 2px lightgray;
+    margin-top: 5vh;
+    align-items: center;
+    justify-content: space-between;
+}
+#toplistname {
+    display:flex;
+    align-items: center;
+}
+#middlelistcomment{
+    display: flex;
+    align-items: center;
+}
+
+#middlelist{
+    display: flex;
+    flex-direction: column;
+}
+
+#guestcomment{
+    width: 40vw;
+    height: auto;
+}
+#commentlist{
+    width: 40vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#commentlist div{
+    font-size: 15px;
+    
+}
+
+
+#commentform textarea{
+    width:35vw;
+    height:5vh;
+    outline: none;
+    resize: none;
+    font-size: 15px;
+    margin-right: 5px;
+}
+#commentform button{
+    width:2.5vw;
+    height: 4.5vh;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px gray solid;
+}
+#commentform{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+#wrapper2{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #F6F6F6;
+    height: auto;
+}
+#commentcontent{
+    display: flex;
+    align-items: center;
+}
+#commentcontent img{
+    width:25px;
+    height:25px;
+}
+.deletebutton{
+    border: 0;
+    cursor: pointer;
+    background-color: #F6F6F6;
+}
+.deletebutton :hover{
+    background-color:white;
+    transition: 0.7s;
+}
+

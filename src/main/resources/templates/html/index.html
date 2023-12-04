@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <script defer type="text/javascript" src="/js/blog.js"></script>
+    <script type="text/javascript" src="/js/mouse.js"></script>
+</head>
+<body>
+    <div id="wrapper1">
+        <div id="main">
+            <div id="dot">
+                <div id="page">
+                    <div id="leftpage">
+                        <!-- 로그인 시 today(오늘) + 1, total(오늘포함전체) +1 -->
+                        <a>today [[${todaycnt.total}]] ｜ total [[${cnt.total}]]</span></a>
+                        <div id="profile">
+                            <div id="photo"></div>
+                            <p>난... ㄱ ㅏ끔... <br>
+                                눈물을 흘린 ㄷ ㅏ .... <br>
+                                ㄱ ㅏ끔은 눈물을 참을 수 없는 내가 별루ㄷㅏ... <br>
+                                맘이 ㅇ ㅏ ㅍ ㅏ 서.... <br>
+                                소ㄹ ㅣ치며... 울 수 있 ㄷㅏ는건.... <br>
+                                좋은ㄱ ㅓ ㅇ ㅑ..... <br>
+                                ㅁ ㅓ... 꼭 슬 ㅍ ㅓ ㅇ ㅑ만 우는 건 ㅇ ㅏ니잖 ㅇ ㅏ...^^ <br>
+                                난... 눈물ㅇ ㅣ ....좋다..... <br>
+                                ㅇ ㅏ니... <br>
+                                머 리가 ㅇ ㅏ닌..... <br>
+                                맘으로.....<br>
+                                우는 ㄴ ㅐㄱ ㅏ 좋ㄷ ㅏ.....
+                            </p>
+                        </div>
+                    </div>
+                    <div id="rightpage">
+                        <a>	Music is My Life... </a>
+                        <div class="home">
+                            <div id="section1">
+                                <div id="leftpost">
+                                    <p>최근 게시물</p>
+                                    <hr size= "0.7px" color="lightgray">
+                                    <p>"최근 4주간 게시물이 없습니다"<br>
+                                    소식이 뜸한 친구에게 마음의 한마디를<br>
+                                    남기세요.
+                                    </p>
+                                </div>
+                                <div id="rightpost">
+                                    <hr style="margin-top: 37px;">
+                                        <div>
+                                            <p style="color:blue ">디스플레이 배율을 100%로 맞춰주세요~!!!</p>
+                                        </div>
+                                    <hr>
+                                    <div>
+                                        <p>
+                                            <!-- 방명록, 일촌평 오늘 . 전체 -->
+                                            방명록 [[${guestbooktodaycnt.todaycnt}]]/[[${guestbooktotalcnt.totalcnt}]]
+                                            &nbsp;&nbsp;
+                                            일촌평 [[${boardtodaycnt.todaycnt}]]/[[${boardtotalcnt.totalcnt}]]
+                                            &nbsp;&nbsp;
+                                            (today/total)                
+                                        </p>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>    
+                            <div id="section2">
+                                <p>미니룸</p>
+                                <div id="picture">                                  
+                                    <div id="avatar1"><img src="/img/avatar1.gif"></div>
+                                    <div id="avatar2"><img src="/img/avatar2.gif"></div>
+                                    <div id="avatar3"><img src="/img/avatar3.gif"></div>
+                                    <div id="avatar4"><img src="/img/avatar4.gif"></div>
+                                    <div id="avatar5"><img src="/img/avatar5.gif"></div>
+                                </div>    
+                            </div>
+                            <div id="section3">
+                                <div id="write">
+                                    <form action="/blog/uproad" method="post">
+                                        <p>일촌평</p>
+                                        <input name="memberId" type="hidden" th:value="${session.member.memberId}">
+                                        <input name="memberName" type="hidden" th:value="${session.member.memberName}">
+                                        <input id="content" name="content" type="text" value="일촌과 나누고 싶은 이야기를 남겨보세요~!" spellcheck="false" onclick="eraseValue(); this.onclick=null;">                               
+                                        <input id="nickname" name="nickname" type="text" value="별명" spellcheck="false" onclick="eraseValueNick(); this.onclick=null;">
+                                        <button type="submit">확인</button>
+                                    </form> 
+                                </div>
+                                <div id="comment">
+                                    <!-- 일촌평(CRUD)-->
+                                    <table id="table" border="0">
+                                        <tr th:each="i : ${data}">
+                                            
+                                            <td class="updatecomment" th:if="${session.member.memberId}==${i.member_id}">
+                                                <form id="updateform" action="/blog/update" method="post">
+                                                    <input name="seq" type="hidden" th:value="${i.seq}">
+                                                    <input id="updatecontent" name="content" type="text" th:value="${i.content}">
+                                                    <span>(&nbsp;</span>
+                                                    <input id="updatenickname" name="nickname" type="text" th:value="${i.nickname}">
+                                                    <span th:text="${i.member_name}+' )'"></span>
+                                                    <button type="submit">저장</button>
+                                                </form>
+                                            </td>
+                
+                                            <td class="currentcomment" th:text="'· '+${i.content}+' ( '+${i.nickname}+' '+${i.member_name}+' ) '"></td>                                    
+
+                                            <td id="posttime" th:text="${i.posttime}"></td>    
+                                            
+                                            <td th:if="${session.member.memberId}==${i.member_id}">
+                                                <button type="button" class="updatebutton">수정</button>
+                                            </td>
+
+                                            <td th:if="${session.member.memberId}==${i.member_id}">
+                                                <form action="/blog/delete" method="post">
+                                                    <input name="memberId" type="hidden" th:value="${session.member.memberId}"> 
+                                                    <input name="seq" type="hidden" th:value="${i.seq}">
+                                                    <button type="submit">삭제</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>                            
+                        </div>
+                        <!-- 방명록, 댓글(CRUD) -->
+                        <div class="homesecond">
+                            <div id ="writeform">
+                                <div id="writepicture">
+                                    <div><img src="/img/avatar3.gif"></div>
+                                </div>
+                               
+                                <form id="writepost" action="/blog/writepost" method="post">
+                                    <input name="writename" type="hidden" th:value="${session.member.memberName}">
+                                    <input name="memberId" type="hidden" th:value="${session.member.memberId}">
+                                    <textarea name="writecontent" spellcheck="false" type="text"></textarea>
+                                    <div>
+                                        <button type="submit">확인</button>      
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="writelist" th:each="list,listState:${guestbooklist}">
+                                <div id="toplist">
+                                    <div id="toplistname">
+                                        <div style="margin-left: 0.5vw;" th:text="' No.'+${listState.size-listState.count+1}"></div>
+                                        <div style="color:#113275; font-weight: bold; margin-right: 0.5vw; margin-left: 0.5vw;" th:text="${list.member_name}"></div>
+                                        <div style="color: gray; font-size: 14px;" th:text="${'('+#strings.substring(list.posttime,0, 19)+')'}"></div>
+                                    </div>
+                                    <div id="guestbookbutton" th:if="${session.member.memberId}==${list.member_id}">
+                                        <button type="button" class="guestupdatebutton">수정</button>       
+                                        <form class action="/blog/deleteguestbook" method="post">
+                                            <input type="hidden" name="memberId" th:value="${session.member.memberId}">
+                                            <input type="hidden" name="seq" th:value="${list.seq}">
+                                            <button type="submit">삭제</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="middlelist">
+                                    <div id="middlelistcomment">
+                                        <div id="writelistpicture">
+                                            <div><img src="/img/avatar3.gif"></div>
+                                        </div>
+
+                                        <span th:text="${list.content}" style="display: block;"></span>
+
+                                        <form class="guestbookupdateform" th:if="${session.member.memberId}==${list.member_id}" action ="/blog/updateguestbook" method="post">
+                                            <input type="hidden" name="seq" th:value="${list.seq}">
+                                            <textarea class="updatetext" name="content" spellcheck="false" type="text" th:text="${list.content}"></textarea>
+                                            <button type="submit">확인</button>
+                                        </form>
+                                    </div>
+                                    <div id="guestcomment">
+                                        <div id="wrapper2">
+                                            <div id="commentlist" th:each="commentlst:${guestbookcommentlist}">
+                                                <div id="commentcontent" th:if="${list.seq}==${commentlst.seq}">
+                                                    <span th:text="${commentlst.member_name}" style="color:#113275"></span>
+                                                    <span th:text="' : '+${commentlst.comment}"></span>
+                                                    <span th:text="${'('+#strings.substring(list.posttime,0, 19)+')'}" style="color:gray; font-size: 13px;"></span>
+
+                                                    <form action="/blog/deleteguestbookcomment" method="post">
+                                                        <input type="hidden" name="memberId" th:value="${session.member.memberId}">
+                                                        <input type="hidden" name="commentseq" th:value="${commentlst.commentseq}">
+                                                        <button class="deletebutton" type="submit" th:if="${commentlst.member_id}==${session.member.memberId}"><img src="/img/deleteicon.png"></button>
+                                                    </form>                                               
+                                                </div>                                                              
+                                            </div>
+                                            <form id="commentform" action ="/blog/guestbookcomment" method="post">
+                                                <input type="hidden" name="memberId" th:value="${session.member.memberId}">
+                                                <input type="hidden" name="memberName" th:value="${session.member.memberName}">
+                                                <input type="hidden" name="seq" th:value="${list.seq}">
+                                                <textarea name="comment" spellcheck="false" type="text"></textarea>
+                                                <button type="submit">확인</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="edge"></div>
+                        <div class="rightbutton">
+                            <div id="homepage">홈</div>
+                            <div id="writepage">방명록</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="box">
+            <div id="musicbox">
+                <div id="musicpicture"></div>
+                <h3 style="text-align: center;"><span style="color:mediumblue" th:text="${session.member.memberName}"></span>님 환영합니다</h3>
+                <form id="logout" action="/logout">
+                    <button type ="submit">로그아웃</button>
+                </form>
+                <div id="musicplayer">
+                    <p>소리를 켜보세요</p>
+                    <audio controls>
+                        <source src ="/bgm/BGM.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
