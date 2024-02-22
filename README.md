@@ -1,6 +1,4 @@
-My First Java Project
-
-######################################
+# My First Java Project
 
  2023-11-24 ~ 2023-12-02 Project
 
@@ -9,5 +7,3 @@ My First Java Project
  board , comment CRUD
  
  author : PJH
- 
-######################################
